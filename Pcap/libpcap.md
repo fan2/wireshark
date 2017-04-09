@@ -1,3 +1,7 @@
+**libpcap**, a portable C/C++ library for network traffic capture.  
+**tcpdump**, a powerful command-line packet analyzer;  
+Tcpdump prints out a description of the contents of packets on a network interface that match the boolean expression; 
+
 ## [Packet capture library (libpcap)](https://wiki.wireshark.org/libpcap)
 Wireshark/TShark uses libpcap to capture live network data.
 
@@ -36,4 +40,15 @@ WinPCap(windows packet capture)是windows平台下一个免费，公共的网络
 
 [WinPcap，NDIS 和 NPF](http://www.cnblogs.com/zhcncn/articles/2864341.html)
 
+## *Pcap
+[libpcap 和 WinPcap](http://www.cnblogs.com/zhongxinWang/p/4302926.html)
+
 [WinPcap开发（一）：零基础入门](http://www.freebuf.com/articles/system/103526.html)
+
+[使用 WinPcap 抓包分析网络协议](https://yq.aliyun.com/articles/50363?spm=5176.8246799.0.0.sr40Jj)
+
+[基于libpcap实现抓包程序](http://blog.csdn.net/maxwell_nc/article/details/45330843)
+
+[wireshark and tcpdump 及其实现基于的libpcap](http://www.cnblogs.com/livingintruth/archive/2012/10/17/2721877.html)
+
+[网络数据包捕获函数库Libpcap安装与使用](https://yq.aliyun.com/articles/49952?spm=5176.8246799.0.0.sr40Jj)
