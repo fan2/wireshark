@@ -5,17 +5,22 @@
 
 [Ethereal（Wireshake）手册（中文版）](http://www.csna.cn/viewthread.php?tid=271)
 
-[Wireshark用户手册](http://man.lupaworld.com/content/network/wireshark/index.html)
+[Wireshark用户手册](http://man.lupaworld.com/content/network/wireshark/index.html) on [KanCloud](http://www.kancloud.cn/wizardforcel/wireshark-manual)
 
 [VC2005编译wireshark](http://yuanmuqiuyu2000.blog.sohu.com/154650242.html)
 
 ## 入门
-[聊聊 tcpdump 与 Wireshark 抓包分析](https://mp.weixin.qq.com/s?__biz=MzAxODI5ODMwOA==&mid=2666539134&idx=1&sn=5166f0aac718685382c0aa1cb5dbca45&mpshare=1&scene=24&srcid=1011VfN6eeAIdh7GXeULGTQl&key=c50f8b988e61749adc9f603294e89bbf52555356ff888072b8e432155948d44a0a180498c87e97eacdfd33e8aa09deb5&ascene=1&uin=MjkzNzEzMDI0MQ%3D%3D&devicetype=Windows-QQBrowser&version=61030004&pass_ticket=fdmfHN71LKACGua%2F4Bx9K74FdOq7yHQXh91ZampyQ45NhLIQCok1j5382G7TM4F%2B)
-
-[Kali 强大的抓包工具 WIRESHARK](http://blog.csdn.net/qq_33936481/article/details/51172049)
+[Kali 强大的抓包工具 WIRESHARK](http://blog.csdn.net/qq_33936481/article/details/51172049) - 综合
 
 [Wireshark入门篇](https://mp.weixin.qq.com/s?__biz=MzAwOTA5NDM0MQ==&mid=205660365&idx=1&sn=056128bb7291c87b9decf633379468e4&mpshare=1&scene=24&srcid=1011shOA1FFqbyMuh6acuhx1&key=c50f8b988e61749a228c39abfbf54e2b22e7682b724b0633105e11ead511645451a0bc46b69aa5ebd7d14ee1b86ada1d&ascene=1&uin=MjkzNzEzMDI0MQ%3D%3D&devicetype=Windows-QQBrowser&version=61030004&pass_ticket=fdmfHN71LKACGua%2F4Bx9K74FdOq7yHQXh91ZampyQ45NhLIQCok1j5382G7TM4F%2B)
 	微信公众号： 计算机网络翻转课堂
+
+[使用 Wireshark 抓取分析 HTTP 协议报文](http://www.cnblogs.com/klguang/p/4624333.html)
+
+[**调试利器之wireshark**](https://yq.aliyun.com/articles/27268?spm=5176.8246799.0.0.sr40Jj)(过滤、着色、图表、跟踪流)  
+[wireshark的filter过滤条件应用实例](https://yq.aliyun.com/articles/27274?spm=5176.100239.blogcont27268.22.PcGo7W)  
+
+[**wireshark的使用、过滤及统计**](http://openmaniak.com/cn/wireshark.php)
 
 ## 系列
 [网络基本功系列](https://community.emc.com/thread/197851?tstart=0)
