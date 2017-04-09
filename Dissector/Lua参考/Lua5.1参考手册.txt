@@ -1,0 +1,2 @@
+Lua 5.1 ²Î¿¼ÊÖ²á
+ http://www.codingnow.com/2000/download/lua_manual.html

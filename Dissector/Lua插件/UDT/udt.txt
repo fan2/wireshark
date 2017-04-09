@@ -1,0 +1,9 @@
+UDT                          Udp Data Transfer Protocol        udt                     
+
+UDT - Udp Data Transfer Protocol (udt) [5 fields]:
+UDT.Len                      LEN                               (unsigned, 4 bytes)
+UDT.Type                     TYPE                              (unsigned, 4 bytes)
+UDT.FrameSeq                 FrameSeq                          (unsigned, 4 bytes)
+UDT.FragCount                FragCount                         (unsigned, 2 bytes)
+UDT.FragSeq                  FragSeq                           (unsigned, 2 bytes)
+                     

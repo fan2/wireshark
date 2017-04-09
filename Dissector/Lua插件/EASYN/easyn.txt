@@ -1,0 +1,10 @@
+EASYN_PTZ - Easyn IP Camera Control Protocol (easyn_ptz) [1 fields]:
+EASYN_PTZ                      Header Flag               (sequence of bytes)
+
+EASYN_STREAM - Easyn IP Camera Transfer Protocol (easyn_stream) [6 fields]:
+EASYN_STREAM.HeaderFlag        Header Flag               (unsigned, 4 bytes)
+EASYN_STREAM.Padding1          Padding1                  (unsigned, 1 byte)
+EASYN_STREAM.PacketLen         Packet Length             (unsigned, 2 bytes)
+EASYN_STREAM.Padding2          Padding2                  (unsigned, 1 byte)
+EASYN_STREAM.FrameType         Frame Type                (unsigned, 2 bytes)
+EASYN_STREAM.Padding3          Padding3                  (sequence of bytes)

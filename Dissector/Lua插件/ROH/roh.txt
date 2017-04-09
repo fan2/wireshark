@@ -1,0 +1,15 @@
+roh自己解析RTP over HTTP；
+roh_rtp剥离RTP over HTTP头部后，交由wireshark自带的RTP和MP4V-ES解析。
+
+
+ROH                          Rtp Over Http                     roh
+
+ROH - Rtp Over Http (roh) [8 fields]:
+ROH.HeaderFlag               Header Flag                       (unsigned, 1 byte)
+ROH.InterleavedChannel       Interleaved Channel               (unsigned, 1 byte)
+ROH.PacketLen                Packet Length                     (unsigned, 2 bytes)
+ROH.Header                   Rtp Header                        (unsigned, 1 byte)
+ROH.PayloadType              Rtp Payload Type                  (unsigned, 1 byte)
+ROH.Sequence                 Rtp Sequence Number               (unsigned, 2 bytes)
+ROH.Timestamp                Rtp Timestamp                     (unsigned, 4 bytes)
+ROH.SSRC                     Rtp SSRC                          (unsigned, 4 bytes)                   
