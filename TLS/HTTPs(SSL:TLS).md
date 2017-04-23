@@ -26,6 +26,13 @@ session key = {Client random, Server random, Premaster secret}
 ### [图解SSL/TLS协议](http://www.ruanyifeng.com/blog/2014/09/illustration-ssl.html)  
 
 ### [Https(SSL/TLS)原理详解](http://www.codesec.net/view/179203.html)  
+在 `ChangeCipherSpec` 传输完毕之后，**客户端**会使用之前协商好的加密套件和 session secret 加密一段 **_Finish_** 的数据（Encryted Handshake Message）传送给服务端，此数据是为了在正式传输应用数据之前对刚刚握手建立起来的加解密通道进行验证。
+
+**服务端**在接收到客户端传过来的 PreMaster 加密数据之后，使用_私钥_对这段加密数据进行解密，并对数据进行验证，也会使用跟客户端同样的方式生成 session secret，一切准备好之后，会给客户端发送一个 `ChangeCipherSpec`，告知客户端已经切换到协商过的加密套件状态，准备使用加密套件和session secret加密数据了。
+之后，服务端也会使用 session secret 加密后一段 **_Finish_** 消息（Encryted Handshake Message）发送给客户端，以验证之前通过握手建立起来的加解密通道是否成功。
+
+根据之前的握手信息，如果客户端和服务端都能对 Finish 信息进行正常加解密且消息正确地被验证，则说明握手通道已经建立成功。
+接下来，双方可以使用上面产生的session secret对数据进行加密传输了。
 
 ## wireshark 抓包
 [利用WireShark破解网站密码](http://www.freebuf.com/articles/network/59664.html)  
