@@ -14,7 +14,6 @@
 
 ## TLS 机制
 ### [SSL/TLS协议运行机制的概述](http://www.ruanyifeng.com/blog/2014/02/ssl_tls.html)  
-1. SSL/TLS协议运行机制的概述
 
 	> 三个随机数，前2个和第3个的关系？
 
@@ -22,6 +21,8 @@ C->S：EncryptWithPubKey {Premaster secret},
 S decrypt with private key.
 
 session key = {Client random, Server random, Premaster secret}
+
+@img ![TLS handshake](http://image.beekka.com/blog/201402/bg2014020502.png)
 
 ### [图解SSL/TLS协议](http://www.ruanyifeng.com/blog/2014/09/illustration-ssl.html)  
 
