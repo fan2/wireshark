@@ -1,3 +1,6 @@
+
+@img ![TLS handshake](http://image.beekka.com/blog/201402/bg2014020502.png)
+
 ## github-未登录(tcp.port==55104&55109).pcapng
 
 1. C->S：Client Hello  
@@ -9,6 +12,8 @@
 7. S->C：Change Cipher Spec, Encryted Handshake Message  
 
 Application Data  
+
+6 为 TLS Client Finished；7 为 TLS Server Finished。
 
 ## github-SignIn-1(tcp.port==54284).pcapng
 
