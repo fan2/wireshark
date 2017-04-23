@@ -24,6 +24,11 @@ session key = {Client random, Server random, Premaster secret}
 
 @img ![TLS handshake](http://image.beekka.com/blog/201402/bg2014020502.png)
 
+- `Server Key Exchange`：EC Diffie-Hellman Server Params  
+- `Client Key Exchange`：EC Diffie-Hellman Client Params  
+- `Encryted Handshake Message`：为 TLS Client Finished    
+- `Encryted Handshake Message`：为 TLS Server Finished  
+
 ### [图解SSL/TLS协议](http://www.ruanyifeng.com/blog/2014/09/illustration-ssl.html)  
 
 ### [Https(SSL/TLS)原理详解](http://www.codesec.net/view/179203.html)  
