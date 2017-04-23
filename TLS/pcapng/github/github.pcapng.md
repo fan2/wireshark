@@ -13,7 +13,32 @@
 
 Application Data  
 
-6 为 TLS Client Finished；7 为 TLS Server Finished。
+- `1.Client Hello`：
+	- TLS Version,  
+	- Random,  
+	- Cipher Suites,  
+	- Compression Methods,  
+	- Extension: server_name(Server Name Indication extension)；  
+	- Extension: elliptic_curves  
+	- Extension: signature_algorithms  
+- `2.Server Hello`：
+	- TLS Version,  
+	- Random,  
+	- **Session ID**,  (黑体新增)  
+	- _Cipher Suite_,  (斜体协定)  
+	- _Compression Method_,  
+	- Extension: server_name(Server Name Indication extension),   
+	- **Extension**: ec_point_formats；  
+- `3.Server Key Exchange`：EC Diffie-Hellman Server Params
+	- Curve Type  
+	- Named Curve  
+	- Pubkey  
+	- Signature Hash Algorithm  
+	- Signature  
+- `4.Client Key Exchange`：EC Diffie-Hellman Client Params  
+	- Pubkey  
+- `6.Encryted Handshake Message`：为 TLS Client Finished  
+- `7.Encryted Handshake Message`：为 TLS Server Finished  
 
 ## github-SignIn-1(tcp.port==54284).pcapng
 
