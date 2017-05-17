@@ -2,8 +2,11 @@
 
 ## HTTPs 扫盲
 ### [图解HTTPS](http://limboy.me/tech/2011/02/19/https-workflow.html)  
+[HTTPS 为什么更安全，先看这些](http://blog.jobbole.com/110373/)  
+[也许，这样理解HTTPS更容易](http://blog.jobbole.com/110354/)  
 
 ### [HTTPS科普扫盲帖](http://www.cnblogs.com/chyingp/p/https-introduction.html)  
+[百度全站 HTTPS 实践](http://blog.csdn.net/bd_zengxinxin/article/details/51115604)  
 
 ## TLS 概述
 ### [理解SSL(https)中的对称加密与非对称加密](http://netsecurity.51cto.com/art/201407/444787.htm)  
@@ -11,6 +14,8 @@
 ### [How HTTPS Secures Connections](https://blog.hartleybrody.com/https-certificates/) / [HTTPS是如何保证连接安全](http://blog.jobbole.com/45530/)  
 
 ### [和安全有关的那些事](http://blog.csdn.net/bluishglc/article/details/7585965)  
+
+### [安全协议系列（四）----SSL与TLS](http://www.cnblogs.com/efzju/p/3674058.html)  
 
 ## TLS 机制
 ### [SSL/TLS协议运行机制的概述](http://www.ruanyifeng.com/blog/2014/02/ssl_tls.html)  
@@ -39,6 +44,8 @@ session key = {Client random, Server random, Premaster secret}
 
 根据之前的握手信息，如果客户端和服务端都能对 Finish 信息进行正常加解密且消息正确地被验证，则说明握手通道已经建立成功。
 接下来，双方可以使用上面产生的session secret对数据进行加密传输了。
+
+[TLS 1.2 handshake problem?](http://grokbase.com/t/apache/users/126c3zespf/httpd-tls-1-2-handshake-problem)
 
 ## wireshark 抓包
 [利用WireShark破解网站密码](http://www.freebuf.com/articles/network/59664.html)  
