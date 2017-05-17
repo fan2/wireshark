@@ -16,17 +16,20 @@
 
 在 Wireshark 解析树中，TLS 为 Secure Sockets Layer。
 
-其中第5步（7.5）为 TLSv1.2 Record Layer 中的 ***Change Cipher Spec*** Protocol，  
-其他步骤为 TLSv1.2 Record Layer 中的 ***Handshake*** Protocol。
+[A TLS message may span multiple TLS records](http://www.networksorcery.com/enp/protocol/tls.htm).
+
+第 1、2、3、4、6、7.2 步均为 TLSv1.2 Record Layer 中的 ***Handshake Protocol***，  
+第 5、7.1 步为 TLSv1.2 Record Layer 中的 ***Change Cipher Spec Protocol***，  
+第 8 步为 TLSv1.2 Record Layer 中的 ***Application Data Protocol***: `http-over-tls`。
 
 - **`1.Client Hello`**：
 	- TLS Version  
 	- Random  
-	- Cipher Suites  
+	- [Cipher Suites](http://www.networksorcery.com/enp/protocol/tls.htm)  
 	- Compression Methods  
 	- Extension: server_name(Server Name Indication extension)  
 	- Extension: elliptic_curves  
-	- Extension: ec_point_formats  
+	- Extension: ec_point_formats(Elliptic curves point formats)  
 	- Extension: signature_algorithms  
 	- Extension: next_protocol_negotiation  
 	- Extension: Application Layer Protocol Negotiation(ALPN Protocol)  
@@ -41,7 +44,7 @@
 	- *Compression Method*  
 	- Extension: renegotiation_info  
 	- Extension: server_name(Server Name Indication extension)  
-	- **Extension**: ec_point_formats  
+	- **Extension**: ec_point_formats(Elliptic curves point formats)  
 	- Extension: *Extended Master Secret*  
 	- Extension: Application Layer Protocol Negotiation(*ALPN Next Protocol: http/1.1*)  
 
