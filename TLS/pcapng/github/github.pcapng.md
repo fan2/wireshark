@@ -16,7 +16,10 @@
 
 在 Wireshark 解析树中，TLS 为 Secure Sockets Layer。
 
-[A TLS message may span multiple TLS records](http://www.networksorcery.com/enp/protocol/tls.htm).
+[A TLS message may span multiple TLS records](http://www.networksorcery.com/enp/protocol/tls.htm).  
+[TLS wraps all traffic in “records” of different types](http://www.moserware.com/2009/06/first-few-milliseconds-of-https.html).   
+
+The handshake record is broken out into several messages.
 
 第 1、2、3、4、6、7.2 步均为 TLSv1.2 Record Layer 中的 ***Handshake Protocol***，  
 第 5、7.1 步为 TLSv1.2 Record Layer 中的 ***Change Cipher Spec Protocol***，  
