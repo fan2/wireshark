@@ -1,24 +1,65 @@
 《TCP/IP 详解 卷1：协议》 第2版 第18章 安全
 
-## HTTPs 扫盲
-### [图解HTTPS](http://limboy.me/tech/2011/02/19/https-workflow.html)  
-[HTTPS 为什么更安全，先看这些](http://blog.jobbole.com/110373/)  
-[也许，这样理解HTTPS更容易](http://blog.jobbole.com/110354/)  
+## 数字证书及安全概述
+### [理解SSL(https)中的对称加密与非对称加密](http://netsecurity.51cto.com/art/201407/444787.htm)
+由早期密码学引入加密类型和加密算法。
 
-### [HTTPS科普扫盲帖](http://www.cnblogs.com/chyingp/p/https-introduction.html)  
-[百度全站 HTTPS 实践](http://blog.csdn.net/bd_zengxinxin/article/details/51115604)  
+### [数字签名和数字证书](http://blog.csdn.net/phunxm/article/details/16344837)
+图解数字签名和数字证书基本概念。
 
-## TLS 概述
-### [理解SSL(https)中的对称加密与非对称加密](http://netsecurity.51cto.com/art/201407/444787.htm)  
+### [白话数字签名](http://www.cnblogs.com/1-2-3/category/106003.html)
+通俗易懂地讲解数字签名的原理和应用方法。
+最后给出一个 B/S 信息系统使用数字签名技术的 Demo。
 
-### [How HTTPS Secures Connections](https://blog.hartleybrody.com/https-certificates/) / [HTTPS是如何保证连接安全](http://blog.jobbole.com/45530/)  
+### [数字证书的基础知识](http://www.enkichen.com/2016/02/26/digital-certificate-based/)
+- 对称加密(常见算法)  
+- 非对称加密(常见算法)  
+- 摘要算法(常见算法)  
+- 数字签名  
+- 数字证书(组成、验证、授权链)  
 
-### [和安全有关的那些事](http://blog.csdn.net/bluishglc/article/details/7585965)  
+### [公钥、秘钥、对称加密、非对称加密总结](http://my.oschina.net/shede333/blog/359290)
+网摘大杂烩。
 
-### [安全协议系列（四）----SSL与TLS](http://www.cnblogs.com/efzju/p/3674058.html)  
+### [和安全有关的那些事](http://blog.csdn.net/bluishglc/article/details/7585965)
+安全技术堆栈。
+
+## HTTPs 扫盲科普
+### [图解HTTPS](http://limboy.me/tech/2011/02/19/https-workflow.html)
+比较简单。
+
+### [HTTPS科普扫盲帖](http://www.cnblogs.com/chyingp/p/https-introduction.html)
+比较系统。
+
+### [HTTPS 工作原理和 TCP 握手机制](http://blog.jobbole.com/105633/)  
+
+### [The First Few Milliseconds of an HTTPS Connection](http://www.moserware.com/2009/06/first-few-milliseconds-of-https.html)
+
+
+### [How HTTPS Secures Connections](https://blog.hartleybrody.com/https-certificates/) / [HTTPS是如何保证连接安全](http://blog.jobbole.com/45530/)
+由浅入深，通俗易懂。
+解释了 Diffie-Hellman 算法的数学原理。
+
+## HTTPs 安全机制
+
+### HTTPS 那些事
+[（一）HTTPS 原理](http://www.guokr.com/post/114121/)  
+[（二）SSL 证书](http://www.guokr.com/post/116169/)  
+[（三）攻击实例与防御](http://www.guokr.com/blog/148613/)  
+
+### [HTTPS 是如何保证安全的？](http://www.jianshu.com/p/b894a7e1c779)
+杂谈论述。
+
+### [HTTPS 为什么更安全](http://blog.jobbole.com/110373/)
+比较完整，图解例证。
+
+### [也许，这样理解HTTPS更容易](http://blog.jobbole.com/110354/)  
+由浅入深，一步步解构还原 HTTPs 的设计过程。
+
+### [百度全站 HTTPS 实践](http://blog.csdn.net/bd_zengxinxin/article/details/51115604)  
 
 ## TLS 机制
-### [SSL/TLS协议运行机制的概述](http://www.ruanyifeng.com/blog/2014/02/ssl_tls.html)  
+### [SSL/TLS协议运行机制的概述](http://www.ruanyifeng.com/blog/2014/02/ssl_tls.html)
 
 	> 三个随机数，前2个和第3个的关系？
 
@@ -34,7 +75,12 @@ session key = {Client random, Server random, Premaster secret}
 - `Encryted Handshake Message`：为 TLS Client Finished    
 - `Encryted Handshake Message`：为 TLS Server Finished  
 
-### [图解SSL/TLS协议](http://www.ruanyifeng.com/blog/2014/09/illustration-ssl.html)  
+### [图解SSL/TLS协议](http://www.ruanyifeng.com/blog/2014/09/illustration-ssl.html)
+基于 CloudFlare 提供的 Keyless 服务，来阐述 SSL 协议的握手过程 和 DH 算法的握手阶段。
+
+### [安全协议系列（四）----SSL与TLS](http://www.cnblogs.com/efzju/p/3674058.html)
+本文使用 OpenSSL 提供的子命令 s_server/s_client 进行 TLS 通信。
+利用 OpenSSL 自带的调试功能，来观察运行的内部细节，起到事半功倍的作用。
 
 ### [Https(SSL/TLS)原理详解](http://www.codesec.net/view/179203.html)  
 在 `ChangeCipherSpec` 传输完毕之后，**客户端**会使用之前协商好的加密套件和 session secret 加密一段 **_Finish_** 的数据（Encryted Handshake Message）传送给服务端，此数据是为了在正式传输应用数据之前对刚刚握手建立起来的加解密通道进行验证。
@@ -46,6 +92,8 @@ session key = {Client random, Server random, Premaster secret}
 接下来，双方可以使用上面产生的session secret对数据进行加密传输了。
 
 [TLS 1.2 handshake problem?](http://grokbase.com/t/apache/users/126c3zespf/httpd-tls-1-2-handshake-problem)
+
+### [SSL/TLS原理详解](https://segmentfault.com/a/1190000002554673)
 
 ## wireshark 抓包
 [利用WireShark破解网站密码](http://www.freebuf.com/articles/network/59664.html)  
