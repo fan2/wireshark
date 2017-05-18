@@ -34,7 +34,13 @@
 ### [HTTPS 工作原理和 TCP 握手机制](http://blog.jobbole.com/105633/)  
 
 ### [The First Few Milliseconds of an HTTPS Connection](http://www.moserware.com/2009/06/first-few-milliseconds-of-https.html)
+结合 wireshark 抓包，全面完整地剖析了 TLS 运行机制和技术细节。
 
+There are no more levels on the **trust chain**.   [Reflections on Trusting Trust](http://www.ece.cmu.edu/~ganger/712.fall02/papers/p761-thompson.pdf)  
+you ultimately have to implicitly trust the built-in certificates.  
+The top root Certificate was **signed by itself** which has been built into host system.  
+
+One final check that we need to do is to verify that the host name on the certificate is what we expected. 
 
 ### [How HTTPS Secures Connections](https://blog.hartleybrody.com/https-certificates/) / [HTTPS是如何保证连接安全](http://blog.jobbole.com/45530/)
 由浅入深，通俗易懂。
