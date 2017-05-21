@@ -1,0 +1,58 @@
+--------------------------------------------------------------------------------
+工具 | Internet 选项 | 内容 | 证书
+--------------------------------------------------------------------------------
+AddTrust External CA Root（The USERTrust Network™）
+Baltimore CyberTrust Root（DigiCert Baltimore Root）
+DigiCert Global Root CA（DigiCert）
+DigiCert High Assurance EV Root CA（DigiCert）
+DST Root CA X3
+GeoTrust Global CA
+GeoTrust Primary Certification Authority
+GlobalSign（颁发者：GlobalSign Root CA - R3；签名算法：sha256RSA——带 RSA 加密的 SHA-256）
+GlobalSign（颁发者：GlobalSign Root CA - R2；签名算法：sha1RSA——带 RSA 加密的 SHA-1）
+GlobalSign Root CA（组织：GlobalSign nv-sa）
+Go Daddy Class 2 Certification Authority（组织：The Go Daddy Group, Inc.）
+Go Daddy Root Certificate Authority - G2（组织：GoDaddy.com, Inc.）
+QuoVadis Root Certification Authority（组织：QuoVadis Limited）
+Starfield Class 2 Certification Authority
+Starfield Services Root Certificate Authority（ - G2）（组织：Starfield Technologies, Inc.）
+StartCom Certification Authority（签名算法：sha1RSA——带 RSA 加密的 SHA-1）
+thawte Primary Root CA
+thawte Primary Root CA - G3
+UTN-USERFirst-Object（组织：The USERTRUST Network）
+VeriSign Universal Root Certification Authority（组织单位：VeriSign Trust Network）
+VeriSign Class 3 Public Primary Certification Authority - G5（组织单位：VeriSign Trust Network）
+
+--------------------------------------------------------------------------------
+Windows:
+--------------------------------------------------------------------------------
+Microsoft Root Authority
+Microsoft Root Certificate Authority
+Symantec Enterprise Mobile Root for Microsoft
+
+--------------------------------------------------------------------------------
+macOS:
+--------------------------------------------------------------------------------
+Apple Root CA
+Apple Root Certificate Authority
+    Developer ID Certification Authority（系统根证书）
+    Apple Worldwide Developer Relations Certification Authority（系统证书）
+
+椭圆曲线公共密钥：
+签名算法：带 SHA-256 的 ECDSA 签名；公共密钥算法：椭圆曲线公共密钥；参数为[椭圆曲线 secp256r1]
+签名算法：带 SHA-384 的 ECDSA 签名；公共密钥算法：椭圆曲线公共密钥；参数为[椭圆曲线 secp384r1]
+
+    GlobalSign（组织单位：GlobalSign ECC Root CA - R4；带 SHA-256 的 ECDSA 签名）
+    GlobalSign（组织单位：GlobalSign ECC Root CA - R5；带 SHA-384 的 ECDSA 签名）
+    Apple Root CA - G3（组织单位：Apple Certification Authority；带 SHA-384 的 ECDSA 签名）
+    GeoTrust Primary Certification Authority - G2（组织：GeoTrust Inc.；带 SHA-384 的 ECDSA 签名）
+    Symantec Class 1/2/3 Public Primary Certification Authority - G4（组织单位：Symantec Trust Network；带 SHA-384 的 ECDSA 签名）
+    thawte Primary Root CA - G2（组织：thawte, Inc.；带 SHA-384 的 ECDSA 签名）
+    VeriSign Class 3 Public Primary Certification Authority - G4（组织单位：VeriSign Trust Network；带 SHA-384 的 ECDSA 签名）
+
+--------------------------------------------------------------------------------
+iOS Developer Certificate
+--------------------------------------------------------------------------------
+Apple Root CA
+└── Apple Worldwide Developer Relations Certification Authority
+    └── iPhone Developer: *@gmail.com (**********)
