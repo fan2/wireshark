@@ -39,6 +39,9 @@ The handshake record is broken out into several messages.
 	- Extension: signed_certificate_timestamp  
 	- Extension: Extended Master Secret  
 
+> Record Layer 头部的 Version 为 TLS 1.0(0x0301)，Client 首次发起 Hello 为比较把稳的最低版本。  
+> HandShake 报文中的 Version 为 TLS 1.2(0x0303)，为客户端支持的 TLS 最高版本。  
+
 - **`2.Server Hello`**：
 	- TLS Version  
 	- Random  
@@ -50,6 +53,9 @@ The handshake record is broken out into several messages.
 	- **Extension**: ec_point_formats(Elliptic curves point formats)  
 	- Extension: *Extended Master Secret*  
 	- Extension: Application Layer Protocol Negotiation(*ALPN Next Protocol: http/1.1*)  
+
+> Record Layer 头部的 Version 为 TLS 1.2(0x0303)，Server 回应 Hello 选择支持客户端最高版本 TLS  1.2。  
+> HandShake 报文中的 Version 也为 TLS 1.2(0x0303)。  
 
 	> 该报文(#8) Server Hello 之后开始发送服务器证书，其中包含 `DigiCert Inc1.0`、`www.digicert.com`、`DigiCert SHA2` 等字样。  
 > 报文(#9)为证书的部分内容，直到报文(#10)证书才发送完。  
