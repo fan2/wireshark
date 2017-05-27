@@ -9,6 +9,8 @@ rfc3546: [Transport Layer Security (TLS) Extensions](https://tools.ietf.org/html
 
 rfc4346: [The Transport Layer Security (TLS) Protocol Version 1.1](https://tools.ietf.org/html/rfc4346)
 
+rfc4492: [Elliptic Curve Cryptography (ECC) Cipher Suites for Transport Layer Security (TLS)](https://tools.ietf.org/html/rfc4492)
+
 rfc4680: [TLS Handshake Message for Supplemental Data](https://tools.ietf.org/html/rfc4680)
 
 	1. Message Flow with SupplementalData  
@@ -67,8 +69,6 @@ Transport Layer Security (TLS) Parameters [@ietf](https://www.ietf.org/assignmen
 
 [SSL/TLS CipherSuite 介绍](https://blog.helong.info/blog/2015/01/23/ssl_tls_ciphersuite_intro/)  
 
-[TLS Elliptic Curve Cipher Suites with SHA-256/384 and AES Galois Counter Mode (GCM)](https://tools.ietf.org/html/rfc5289)
-
 [How do browsers negotiate SSL/TLS connection parameters?](https://security.stackexchange.com/questions/94799/how-do-browsers-negotiate-ssl-tls-connection-parameters)  
 [What is ECDHE-RSA?](https://security.stackexchange.com/questions/14731/what-is-ecdhe-rsa)  
 [What's the GCM-SHA 256 of a TLS protocol?](https://crypto.stackexchange.com/questions/26410/whats-the-gcm-sha-256-of-a-tls-protocol)  
@@ -95,34 +95,35 @@ CipherSuite TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256    = {0xC0,0x2F};
 
 - Key Exchange (Kx)：密钥交换协商协议。主流有两种：DH 和 ECDH。
 
-	> 自从斯诺登爆料了NSA的https破解方案以后，现在的 key exchange(密钥交换)算法，普遍流行 PFS，把DH, ECDH变成 DHE，ECDHE 。  
+	> 自从斯诺登爆料了 NSA 的 HTTPs 破解方案以后，现在的密钥交换算法，普遍流行 **PFS**（Perfect Forward Secrecy），把 DH, ECDH 变成 DHE,ECDHE 。  
 
 - Authentication (Au)：非对称认证算法，常见有三种：DSA/RSA/ECDSA。  
 
-	> 目前最主流的是 RSA ( 2048 bit 及以上)；ECDSA 是新兴趋势，例如 gmail，facebook 都在迁移到 ECDSA；DSA 由于只能提供1024bit，已被建议禁用。
+	> 目前最主流的是 **RSA** ( 2048 bit 及以上)；ECDSA 是新兴趋势，例如 gmail，facebook 都在迁移到 ECDSA；DSA 由于只能提供1024bit，已被建议禁用。
 
-- Encryption(Enc)：对称加密算法，主流趋势是使用 AES。
+- Encryption(Enc)：对称加密算法，主流趋势是使用 **AES**。
 
-	> 其他的有：DES（已被淘汰）；RC4（不建议使用）；3DES（不建议使用）；Camellia(貌似日本人搞的) 等。
+	> 其他的有：DES（已被淘汰）；RC4（不建议使用）；3DES（不建议使用）；Camellia（貌似日本人搞的） 等。
 
 - Message Authentication Code(MAC)：消息认证码算法，主流有 SHA1、SAH256、SHA384 等。  
 
-	> TLS 中使用了 HMAC 模式，而不是原始的 SHA1、SHA256 等；google 已在淘汰 MD5 了。  
+	> TLS 中使用了 **HMAC** 模式，而不是原始的 SHA1、SHA256 等；google 已在淘汰 MD5 了。  
 
 通过 `openssl ciphers -v` 命令可以列举 OpenSSL 支持的所有 ciphers：
 
 ![openssl-ciphers](images/openssl-ciphers-v.png)
 
 ### OpenSSL
-tls/ssl 一共出过 5个版本：ssl2/ssl3/tls1.0/tls1.1/tls1.2 ，ssl2/ssl3这两个版本漏洞太多，请务必禁用。
+TLS/SSL 一共出过 5个版本：ssl2/ssl3/tls1.0/tls1.1/tls1.2 ，ssl2/ssl3 这两个版本漏洞太多，请务必禁用。
 
-tls1.2，当前(2015年)最新的tls协议，定义在：rfc5246
+TLS1.2 是当前最新的 TLS 协议，定义在 rfc5246 中。
 
-tls协议的实现有多种，如 openssl, gnutls, nss, libressl, cyassl, polarssl, botan 等等。
+[TLS1.3](https://www.sslchina.com/introduction-to-tls1-3/) [概述](https://www.inforsec.org/wp/?p=1960)  [改进的握手：更多隐私更少延迟](http://www.linuxidc.com/Linux/2015-11/125288.htm)。
 
-openssl 的代码算是其中最混乱的，但是也是最久经考验的。 ( 请参见此打脸文： http://blog.csdn.net/dog250/article/details/24552307 )
+TLS 协议的实现有多种，如 openssl,gnutls,nss,libressl,cyassl,polarssl,botan 等等。  
+openssl 的代码算是其中最混乱的，但是也是最久经考验的。 ( 请参见此打脸文： <http://blog.csdn.net/dog250/article/details/24552307>)
 
-个人觉得 polarssl 和 botan 的架构最清晰，代码风格清新可爱，便于学习理解协议（但是不建议在生产环境下用，例如 polarssl 功能尚有欠缺）。
+个人觉得 polarssl 和 botan 的架构最清晰，代码风格清新可爱，便于学习理解协议。但是不建议在生产环境下用，例如 polarssl 功能尚有欠缺。
 
 [OpenSSL 详解](http://blog.csdn.net/w1781806162/article/details/46358747)  
 [OpenSSL 之命令详解](http://shjia.blog.51cto.com/2476475/1427138)  
@@ -223,10 +224,6 @@ SSL证书**验证失败**有以下三点原因：
 
 ### [HTTPS 背后的加密算法](http://insights.thoughtworkers.org/cipher-behind-https/)
 
-### [百度全站 HTTPS 实践](http://blog.csdn.net/bd_zengxinxin/article/details/51115604)
-[Strong SSL Security on nginx](https://raymii.org/s/tutorials/Strong_SSL_Security_On_nginx.html)  
-[Nginx下配置高性能，高安全性的https TLS服务](https://blog.helong.info/blog/2015/05/09/https-config-optimize-in-nginx/)  
-
 ## TLS 机制
 [SSL and TLS Deployment Best Practices](https://github.com/ssllabs/research/wiki/SSL-and-TLS-Deployment-Best-Practices)  
 
@@ -269,7 +266,9 @@ session key = {Client random, Server random, Premaster secret}
 	- **[ECDHE](https://security.stackexchange.com/questions/14731/what-is-ecdhe-rsa)**：使用基于椭圆曲线签密方案（EC, Elliptic Curve）的 Diffie-Hellman（DH）密钥协商协议。尾部的 <kbd>E</kbd> 为 Ephemeral 首字母，表示协商的是**临时**会话密钥。相对每次会话协商的临时密钥，证书中的公钥则是永久的。  
 	- **RSA**：证书公钥加密算法，用于对证书数据部分的散列值进行签密、加密  ECDHE 交换参数（的 HASH 值）。可能替换值为 ECDSA（椭圆曲线数字签名算法）。  
 
-	> rfc5289 定义了该 CipherSuite 的具体实现。
+	> rfc4492 & rfc5289 定义了该 CipherSuite 的具体实现。  
+	> the long term authenticity is confirmed via the server cert's **RSA** signature but the transient keys are **derived** via ephemeral EC keys (which then generate the symmetric key)  
+	> **ECDHE**-RSA uses Diffie-Hellman on an *elliptic curve* group while **DHE**-RSA uses Diffie-Hellman on a *modulo-prime* group.
 
 2. **AES_128_GCM**：传输会话（对称）加解密使用 GCM 模式的 AES-128 算法。
 
@@ -291,7 +290,10 @@ session key = {Client random, Server random, Premaster secret}
 3. 从签名解析出的摘要和证书公开内容的摘要一致（证书内容完整，未被篡改）；  
 4. 主题 CN 子域（Subject.CN）与 URL 中的 HOST 一致，综上确保访问的网站是来自预期目标服务器且非劫持或钓鱼。  
 
-然后，客户端在接收到 `Server Key Exchange` 报文后，基于 ECDH[^ECDH] 参数中的 Pubkey 通过一定的算法计计算出 ***Pre-Master Secret***。  
+然后，客户端在接收到 `Server Key Exchange` 报文后，基于 ECDH[^ECDH] 参数中的 Pubkey 通过一定的算法计计算出 ***Pre-Master Secret***。
+
+@img ![Server_Key_Exchange.png](pcapng/github/github-未登录(tcp.port==55104&55109)-Server_Key_Exchange.png)
+
 紧接着，客户端将基于 Client Hello、Server Hello 中的 2 个 28 bytes 随机数（Random）和这个 Pre-Master Secret 计算出用于派生后续传输所用对称密钥的种子—— ***Master Secret***（Shared Secret）。
 
 > 两个 Hello 随机数都是明文透传。  
@@ -319,7 +321,10 @@ Key Material需要计算12次，从而产生12个hash值。产生12个hash之后
 #### 服务端基于 Client Key Exchange 计算对称密钥
 服务器在收到客户端的 `ChangeCipherSpec` 报文后，也回应一个 `ChangeCipherSpec`  告知客户端确定使用双方都支持确认的 Cipher Suite。
 
-服务端在接收到 `Client Key Exchange` 报文后，基于 ECDH 参数中的 Pubkey 通过一定的算法计计算出 ***Pre-Master Secret***。  
+服务端在接收到 `Client Key Exchange` 报文后，基于 ECDH 参数中的 Pubkey 通过一定的算法计计算出 ***Pre-Master Secret***。
+
+@img ![Client_Key_Exchange.png](pcapng/github/github-未登录(tcp.port==55104&55109)-Client_Key_Exchange.png)
+
 然后，服务端再基于 Client Hello、Server Hello 中的 2 个 28 bytes 随机数（Random）和这个 Pre-Master Secret 计算出用于派生后续传输所用对称密钥的种子—— ***Master Secret***（Shared Secret）。
 
 > ECDH 参数（EC Diffie-Hellman Client Params）使用 Certificate 中的公钥加密，需要使用对应的私钥解密——只有持有证书的服务器才能解开，确保了交换参数的安全性。  
@@ -347,5 +352,30 @@ Master Secret 作为数据加解密相关的 secret 的 Key Material 的一部�
 [逆向wireshark学习SSL协议算法](http://sanwen8.cn/p/27ebPa7.html)  
 [用Wireshark轻松解密TLS浏览器流量](http://bobao.360.cn/learning/detail/249.html)  
 [wireshark解密用临时秘钥加密的ssl/tls数据包](http://blog.csdn.net/gufachongyang02/article/details/52166285)  
+
+## SSL Settings
+[百度全站 HTTPS 实践](http://blog.csdn.net/bd_zengxinxin/article/details/51115604)  
+[Strong SSL Security on nginx](https://raymii.org/s/tutorials/Strong_SSL_Security_On_nginx.html)  
+[Nginx下配置高性能，高安全性的https TLS服务](https://blog.helong.info/blog/2015/05/09/https-config-optimize-in-nginx/)  
+
+[Google Chrome SSL Settings](http://googlechrometutorial.com/google-chrome-advanced-settings/Google-chrome-ssl-settings.html)  
+[How to View SSL Certificate Details in Chrome 56](https://www.thesslstore.com/blog/how-to-view-ssl-certificate-details-in-chrome-56/)  
+[How Do You View SSL Certificate Details in Google Chrome?](https://www.howtogeek.com/292076/how-do-you-view-ssl-certificate-details-in-google-chrome/)  
+
+[Enabling SSL Versions TLS 1.1 & TLS 1.2](http://www.bachddsoc.org/print_files/Instructions-enabling-TLS.pdf)  
+[How do I enable SSL 3.0/TLS 1.0 on Google Chrome?](https://productforums.google.com/forum/#!msg/chrome/tG8TVEG6V8I/SH_Jf4U-TEEJ)  
+
+In order to enable TLS 1.0 in chrome do the following: 
+
+1.  Click the wrench icon  
+2.  Choose Options  
+3.  Select "Under the Hood" Tab  
+4.  Click Change proxy settings  
+5.  Select "Advanced" Tab  
+6.  Scoll down and check TLS 1.0  
+7.  Close and restart all open browsers.  
+
+[Turn Off SSL 3.0 and TLS 1.0 in Your Browser](https://www.ssl.com/how-to/turn-off-ssl-3-0-and-tls-1-0-in-your-browser/)  
+[How to disable SSL3 and enable TLS for various browsers?](http://info.maybank2u.com.sg/eservices/personal/faq/faq-browser.aspx)  
 
 [^ECDH]: [Elliptic curve Diffie–Hellman](https://en.wikipedia.org/wiki/Elliptic_curve_Diffie%E2%80%93Hellman) (ECDH) is an anonymous key agreement protocol that allows two parties, each having an elliptic curve **public–private** key pair, to establish a **shared secret** over an insecure channel.This shared secret may be *directly used* as a key, or *to derive another key*. The key, or the derived key, can then be used to encrypt subsequent communications using a ***symmetric key cipher***. It is a variant of the Diffie–Hellman protocol using elliptic curve cryptography.
