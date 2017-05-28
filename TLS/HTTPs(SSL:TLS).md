@@ -3,26 +3,30 @@
 《TCP/IP 详解 卷1：协议》 第2版 第18章 安全
 
 ## TLS rfc
-rfc2246: [The TLS Protocol Version 1.0](https://tools.ietf.org/html/rfc2246)
+### Protocol
 
-rfc3546: [Transport Layer Security (TLS) Extensions](https://tools.ietf.org/html/rfc3546)
+- rfc2246: [Version 1.0](https://tools.ietf.org/html/rfc2246)  
+- rfc4346: [ Version 1.1](https://tools.ietf.org/html/rfc4346)  
+- **rfc5246**: [Version 1.2](https://www.ietf.org/rfc/rfc5246.txt)  
 
-rfc4346: [The Transport Layer Security (TLS) Protocol Version 1.1](https://tools.ietf.org/html/rfc4346)
+### Extensions
 
-rfc4492: [Elliptic Curve Cryptography (ECC) Cipher Suites for Transport Layer Security (TLS)](https://tools.ietf.org/html/rfc4492)
+- [rfc3546](https://tools.ietf.org/html/rfc3546)  
+- [**rfc4366**](https://tools.ietf.org/html/rfc4366)  
 
-rfc4680: [TLS Handshake Message for Supplemental Data](https://tools.ietf.org/html/rfc4680)
+rfc4681: [TLS User Mapping Extension](https://tools.ietf.org/html/rfc4681)  
+rfc5746: [Transport Layer Security (TLS) Renegotiation Indication Extension](https://tools.ietf.org/html/rfc5746)  
+
+### Handshake
+**rfc4680**: [TLS Handshake Message for Supplemental Data](https://tools.ietf.org/html/rfc4680)
 
 	1. Message Flow with SupplementalData  
 	2. Double Handshake to Protect Supplemental Data  
 
-rfc4681: [TLS User Mapping Extension](https://tools.ietf.org/html/rfc4681)
+### ECDH
+**rfc4492**: [Elliptic Curve Cryptography (ECC) Cipher Suites for Transport Layer Security (TLS)](https://tools.ietf.org/html/rfc4492)
 
-rfc5246: [The Transport Layer Security (TLS) Protocol Version 1.2](https://www.ietf.org/rfc/rfc5246.txt)
-
-rfc5289: [TLS Elliptic Curve Cipher Suites with SHA-256/384 and AES Galois Counter Mode (GCM)](https://tools.ietf.org/html/rfc5289)
-
-rfc5746: [Transport Layer Security (TLS) Renegotiation Indication Extension](https://tools.ietf.org/html/rfc5746)
+**rfc5289**: [TLS Elliptic Curve Cipher Suites with SHA-256/384 and AES Galois Counter Mode (GCM)](https://tools.ietf.org/html/rfc5289)
 
 rfc7919: [Negotiated Finite Field Diffie-Hellman Ephemeral Parameters for Transport Layer Security (TLS)](https://tools.ietf.org/html/rfc7919)
 
@@ -255,7 +259,7 @@ session key = {Client random, Server random, Premaster secret}
 #### Hello 协商加密套件与密码套件
 在 `Client Hello` 报文中，客户端告诉服务器自己支持的 **TLS Version**、**Cipher Suites**、**Compression Methods** 和 **Extension**(server_name,elliptic_curves,ec_point_formats(Elliptic curves point formats),signature_algorithms,ALPN Protocol,Extended Master Secret) 等信息。
 
-服务器收到 `Client Hello` 后，会结合双方支持的加密基础设施，给客户端回应  `Server Hello` 反馈选择的 TLS 版本以及密码套件（Cipher Suite）。
+服务器收到 `Client Hello` 后，会结合双方支持的加密基础设施（proposed by the client and supported by the server），给客户端回应  `Server Hello` 反馈（in response to）选择的 TLS 版本以及密码套件（common Cipher Suite）。
 
 在 **`github-未登录(tcp.port==55104&55109).pcapng`** 的 Packet 8 `Server Hello`  中包含 elliptic_curves 和 signature_algorithms 等 Extension，协商出的 Cipher Suite 为 *`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`*。
 
@@ -263,8 +267,8 @@ session key = {Client random, Server random, Premaster secret}
 
 1. **ECDHE_RSA**：密钥协商交换算法
 
-	- **[ECDHE](https://security.stackexchange.com/questions/14731/what-is-ecdhe-rsa)**：使用基于椭圆曲线签密方案（EC, Elliptic Curve）的 Diffie-Hellman（DH）密钥协商协议。尾部的 <kbd>E</kbd> 为 Ephemeral 首字母，表示协商的是**临时**会话密钥。相对每次会话协商的临时密钥，证书中的公钥则是永久的。  
-	- **RSA**：证书公钥加密算法，用于对证书数据部分的散列值进行签密、加密  ECDHE 交换参数（的 HASH 值）。可能替换值为 ECDSA（椭圆曲线数字签名算法）。  
+	- **[ECDHE](https://security.stackexchange.com/questions/14731/what-is-ecdhe-rsa)**：使用基于椭圆曲线签密方案（EC, Elliptic Curve）的 Diffie-Hellman（DH）密钥协商协议。尾部的 <kbd>E</kbd> 为 Ephemeral 首字母，表示协商的是**临时**会话密钥。相对每次会话协商的临时密钥，证书中的公钥则是永久的（long-term）。  
+	- **RSA**：证书公钥加密算法，用于对证书数据部分的散列值进行签密、对  ECDHE 交换参数（的 HASH 值）进行签密。可能替换值为 ECDSA（椭圆曲线数字签名算法）。  
 
 	> rfc4492 & rfc5289 定义了该 CipherSuite 的具体实现。  
 	> the long term authenticity is confirmed via the server cert's **RSA** signature but the transient keys are **derived** via ephemeral EC keys (which then generate the symmetric key)  
@@ -283,14 +287,14 @@ session key = {Client random, Server random, Premaster secret}
 	> 使用安全散列算法2（SHA-2）生成256字节的摘要，确保消息的完整性（没有被篡改）。
 
 #### 客户端基于 Certificate 和 Server Key Exchange 计算对称密钥
-客户端首先要校验服务端下发证书（`Certificate`）的合法性：
+客户端首先要校验服务端下发证书（`Certificate`）的合法性（validates the certificate chain）：
 
 1. 证书路径信任链逐级校验通过（证书确由可信 CA 认证签发）；  
 2. 签名解密成功（确系证书持有者亲笔）；  
 3. 从签名解析出的摘要和证书公开内容的摘要一致（证书内容完整，未被篡改）；  
 4. 主题 CN 子域（Subject.CN）与 URL 中的 HOST 一致，综上确保访问的网站是来自预期目标服务器且非劫持或钓鱼。  
 
-然后，客户端在接收到 `Server Key Exchange` 报文后，基于 ECDH[^ECDH] 参数中的 Pubkey 通过一定的算法计计算出 ***Pre-Master Secret***。
+然后，客户端在接收到 `Server Key Exchange` 报文后，首先需要使用证书中的公钥对签名进行 RSA 解密并校验散列值。如果解密校验通过，则基于 ECDH[^ECDH] 参数中的 Pubkey（the server's ephemeral ECDH public key） 通过一定的算法计计算出 ***Pre-Master Secret***（resultant shared secret）。
 
 @img ![Server_Key_Exchange.png](pcapng/github/github-未登录(tcp.port==55104&55109)-Server_Key_Exchange.png)
 
@@ -321,7 +325,7 @@ Key Material需要计算12次，从而产生12个hash值。产生12个hash之后
 #### 服务端基于 Client Key Exchange 计算对称密钥
 服务器在收到客户端的 `ChangeCipherSpec` 报文后，也回应一个 `ChangeCipherSpec`  告知客户端确定使用双方都支持确认的 Cipher Suite。
 
-服务端在接收到 `Client Key Exchange` 报文后，基于 ECDH 参数中的 Pubkey 通过一定的算法计计算出 ***Pre-Master Secret***。
+服务端在接收到 `Client Key Exchange` 报文后，基于 ECDH 参数中的 Pubkey 通过一定的算法计计算出 ***Pre-Master Secret***（resultant shared secret）。
 
 @img ![Client_Key_Exchange.png](pcapng/github/github-未登录(tcp.port==55104&55109)-Client_Key_Exchange.png)
 
