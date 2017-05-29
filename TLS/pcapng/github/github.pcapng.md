@@ -2,6 +2,13 @@
 
 [Elliptic Curve Cryptography (ECC) Cipher Suites for Transport Layer Security (TLS)](http://www.rfcreader.com/#rfc4492)
 
+## tls.record & tls.handshake
+在 Wireshark 解析树中，TLS 为 `Secure Sockets Layer`。
+
+The protocol is composed of two layers: the TLS **Record** Protocol and the TLS **Handshake** Protocol.  
+[TLS wraps all traffic in “records” of different types](http://www.moserware.com/2009/06/first-few-milliseconds-of-https.html). [A TLS message may span multiple TLS records](http://www.networksorcery.com/enp/protocol/tls.htm).  
+The handshake record is broken out into several messages.  
+
 The TLS Handshake Protocol involves the following steps:
 
 -  Exchange **hello** messages to agree on algorithms, exchange random values, and check for session resumption.  
@@ -11,11 +18,7 @@ The TLS Handshake Protocol involves the following steps:
 -  Provide security parameters to the record layer.  
 -  Allow the client and server to ***verify*** that their peer has calculated the same security parameters and that the handshake occurred without tampering by an attacker.  
 
-@img ![Message_flow_in_a_full_TLS_handshake](rfc4492-Message_flow_in_a_full_TLS_handshake.png)
-
-@img ![Server_Certificate](rfc4492-5.3.Server_Certificate.png)
-
-@img ![TLS handshake](http://image.beekka.com/blog/201402/bg2014020502.png)
+@img ![Message_flow_in_a_full_TLS_handshake](../../images/rfc4492-Message_flow_in_a_full_TLS_handshake.png)
 
 ## github-未登录(tcp.port==55104&55109).pcapng
 
@@ -29,13 +32,6 @@ The TLS Handshake Protocol involves the following steps:
 8. C->S/S->C：Application Data  
 
 ---
-
-在 Wireshark 解析树中，TLS 为 Secure Sockets Layer。
-
-[A TLS message may span multiple TLS records](http://www.networksorcery.com/enp/protocol/tls.htm).  
-[TLS wraps all traffic in “records” of different types](http://www.moserware.com/2009/06/first-few-milliseconds-of-https.html).   
-
-The handshake record is broken out into several messages.
 
 第 1、2、3、4、6、7.2 步均为 TLSv1.2 Record Layer 中的 ***Handshake Protocol***，  
 第 5、7.1 步为 TLSv1.2 Record Layer 中的 ***Change Cipher Spec Protocol***，  
@@ -128,9 +124,8 @@ ssl.record 各部分长度构成如下：
 
 @img ![github-未登录(tcp.port==55104&55109)-Certificate.png](github-未登录(tcp.port==55104&55109)-Certificate.png)
 
-根据 [rfc4492](https://tools.ietf.org/html/rfc4492) 中的描述，The server's Certificate message is capable of carrying a **chain** of certificates.
-
-该报文下发了 GitHub 机构旗下 github.com 网站的证书及其颁发机构 DigiCert 的证书：
+正如 [rfc4492](https://tools.ietf.org/html/rfc4492) 所述，The server's Certificate message is capable of carrying a **chain** of certificates.  
+`Certificate` 报文下发了 GitHub 机构旗下 github.com 网站的证书及其颁发机构 DigiCert 的证书：
 
 ```Shell
 // 二级证书(1917 bytes)
