@@ -9,19 +9,32 @@
 - rfc4346: [ Version 1.1](https://tools.ietf.org/html/rfc4346)  
 - **rfc5246**: [Version 1.2](https://www.ietf.org/rfc/rfc5246.txt)  
 
+The protocol is composed of two layers: the TLS **Record** Protocol and the TLS **Handshake** Protocol.
+
+#### Handshake
+The TLS Handshake Protocol involves the following steps:
+
+-  Exchange **hello** messages to agree on algorithms, exchange random values, and check for session resumption.  
+-  Exchange the necessary **cryptographic** parameters to allow the client and server to agree on a ***premaster secret***.  
+-  Exchange **certificates** and **cryptographic** information to allow the client and server to ***authenticate*** themselves.  
+-  Generate a ***master secret*** from the premaster secret and exchanged random values.  
+-  Provide security parameters to the record layer.  
+-  Allow the client and server to ***verify*** that their peer has calculated the same security parameters and that the handshake occurred without tampering by an attacker.  
+
+@img ![Message_flow_in_a_full_TLS_handshake](images/rfc4492-Message_flow_in_a_full_TLS_handshake.png)
+
 ### Extensions
 
 - [rfc3546](https://tools.ietf.org/html/rfc3546)  
 - [**rfc4366**](https://tools.ietf.org/html/rfc4366)  
 
-rfc4681: [TLS User Mapping Extension](https://tools.ietf.org/html/rfc4681)  
-rfc5746: [Transport Layer Security (TLS) Renegotiation Indication Extension](https://tools.ietf.org/html/rfc5746)  
-
-### Handshake
-**rfc4680**: [TLS Handshake Message for Supplemental Data](https://tools.ietf.org/html/rfc4680)
+rfc4680: [TLS Handshake Message for Supplemental Data](https://tools.ietf.org/html/rfc4680)
 
 	1. Message Flow with SupplementalData  
 	2. Double Handshake to Protect Supplemental Data  
+
+rfc4681: [TLS User Mapping Extension](https://tools.ietf.org/html/rfc4681)  
+rfc5746: [Transport Layer Security (TLS) Renegotiation Indication Extension](https://tools.ietf.org/html/rfc5746)  
 
 ### ECDH
 **rfc4492**: [Elliptic Curve Cryptography (ECC) Cipher Suites for Transport Layer Security (TLS)](https://tools.ietf.org/html/rfc4492)
@@ -29,6 +42,9 @@ rfc5746: [Transport Layer Security (TLS) Renegotiation Indication Extension](htt
 **rfc5289**: [TLS Elliptic Curve Cipher Suites with SHA-256/384 and AES Galois Counter Mode (GCM)](https://tools.ietf.org/html/rfc5289)
 
 rfc7919: [Negotiated Finite Field Diffie-Hellman Ephemeral Parameters for Transport Layer Security (TLS)](https://tools.ietf.org/html/rfc7919)
+
+#### Server Certificate
+@img ![Server_Certificate](images/rfc4492-5.3.Server_Certificate.png)
 
 ## 密码学及安全技术栈
 [密码学笔记](http://www.ruanyifeng.com/blog/2006/12/notes_on_cryptography.html)  
