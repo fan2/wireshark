@@ -2,7 +2,7 @@
 
 1. C->S：Client Hello  
 2. S->C：Server Hello  
-3. S->C：CertificateServer Key Exchange, Server Hello Done  
+3. S->C：Certificate, Server Key Exchange, Server Hello Done  
 4. C->S：Client Key Change  
 5. C->S：Change Cipher Spec  
 6. C->S：Encryted Handshake Message  

@@ -135,7 +135,9 @@ Certificate: 3082077930820661a00302010202100bfdb4090ad7b5e640... (id-at-commonNa
 Certificate: 308204b63082039ea00302010202100c79a944b08c119520... (id-at-commonName=DigiCert SHA2 Extended Validation Server CA,id-at-organizationalUnitName=www.digicert.com,id-at-organizationName=DigiCert Inc,id-at-countryName=US)
 ```
 
-wireshark 右键菜单 **`导出分组字节流`**，可导出 Certificate 字段值的分组字节流（raw 二进制），并保存为 *.cer。在 macOS 下双击自动将证书导入钥匙串（Keychain Access），然后在钥匙串中可双击打开查看证书内容。
+在 wireshark 中可依次展开 Certificate|signedCertificate 查看证书颁发机构（issuer）和证书持有主体（subject）信息及其公钥信息（subjectPublicKeyInfo）。其中 signature 指定了认证签密算法，encrypted 部分为使用 DigiCert 私钥加过密的签名。
+
+也可右键菜单 **`导出分组字节流`**，可导出 Certificate 字段值的分组字节流（raw 二进制），并保存为 *.cer。在 macOS 下双击自动将证书导入钥匙串（Keychain Access），然后在钥匙串中可双击打开查看证书内容。
 
 #### Actions of the receiver
 The client **validates** the certificate chain, **extracts** the server's public key, and **checks** that the key type is appropriate for the negotiated key exchange algorithm.
@@ -263,4 +265,11 @@ TLS Server Finished
 5. S->C：Change Cipher Spec, Encryted Handshake Message  
 6. C->S/S->C：Application Data  
 
-第4步为 TLSv1.2 Record Layer: Handshake Protocol: Multiple Handshake Messages
+第1步中的 Client Hello 中携带了 32 字节的 Session ID，但是服务器返回 Session ID 并不一致，这说明服务器缓存中已经找不到对应的会话（无法恢复），只能从头开始一趟完整的 TLS 握手协商。
+
+对比 `github-未登录(tcp.port==55104&55109).pcapng` ，这里将 4、5、6 合在一个 TCP 包中发送。
+
+其中 C->S 的 Encryted Handshake Message 换成了 Multiple Handshake Messages —— 2 个 Length=0 的 `Hello Request` 报文？
+
+## github-SignIn-2(tcp.port==56033).pcapng
+同 github-SignIn-1(tcp.port==54284).pcapng。
