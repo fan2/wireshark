@@ -23,6 +23,25 @@ The TLS Handshake Protocol involves the following steps:
 
 @img ![Message_flow_in_a_full_TLS_handshake](images/rfc4492-Message_flow_in_a_full_TLS_handshake.png)
 
+@img ![TLS-Handshake-Message-Flow(full)](images/TLS-Handshake-Message-Flow(full).png)
+
+##### resumed from Session ID
+**session identifier**: An arbitrary byte sequence chosen by the server to identify an active or resumable session state.  
+“Server Hello” message contains a 32 byte session ID in case we want to reconnect without a big handshake.  
+
+The client sends a `ClientHello` using the Session ID of the session to be resumed.  
+The server then checks its session cache for a match.  
+
+If a match is **found**, and the server is willing to re-establish the connection under the specified session state, it will send a `ServerHello` with the same Session ID value.  
+At this point, both client and server MUST send `ChangeCipherSpec` messages and proceed directly to Finished messages.  
+Once the re-establishment is complete, the client and server MAY begin to exchange application layer data.  
+
+If a Session ID match is **not found**, the server generates a **new** session ID, and the TLS client and server perform a **full** handshake.
+
+@img ![Message_flow_for_an_abbreviated_TLS_handshake.png](images/rfc5246-Message_flow_for_an_abbreviated_TLS_handshake.png)
+
+@img ![TLS-Handshake-Message-Flow(resumed)](images/TLS-Handshake-Message-Flow(resumed).png)
+
 ### Extensions
 
 - [rfc3546](https://tools.ietf.org/html/rfc3546)  
