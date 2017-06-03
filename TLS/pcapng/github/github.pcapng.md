@@ -21,6 +21,9 @@ The TLS Handshake Protocol involves the following steps:
 @img ![Message_flow_in_a_full_TLS_handshake](../../images/rfc4492-Message_flow_in_a_full_TLS_handshake.png)
 
 ## github-未登录(tcp.port==55104&55109).pcapng
+以下是访问 <https://github.com> 的 wireshark 抓包截图：
+
+![github-未登录(tcp.port==55104&55109)](github-未登录(tcp.port==55104&55109).png)
 
 1. C->S：Client Hello  
 2. S->C：Server Hello  
