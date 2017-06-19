@@ -71,7 +71,7 @@ The steps are as follows:
 1. Alice sends two messages to the KDC:  
 	- An **authenticator**—a request to *open a session* with Bob that includes the client ID ad a timestamp—encrypted using the **session key**  
 		> Alice 请求建立与 Bob 的会话，发送一个使用 Session Key 加密的包含 ID 和 时间戳 的 authenticator 请求。  
-	>> **疑问**：Request for Bob 中的 Bob’s ID 不包含在 authenticator 报文中，应该是明文部分？  
+		>> **疑问**：Request for Bob 中的 Bob’s ID 不包含在 authenticator 报文中，应该是明文部分？  
 
 	- A message that contains the **TGT** that the KDC issued earlier  
 		> Alice 发送 KDC 早先颁发的 TGT。  
@@ -87,7 +87,7 @@ The steps are as follows:
 
 	The KDC also creates a **ticket** for Alice to send to Bob. This ticket contains a new session key, and Alice’s client ID. This key is encrypted with *Bob’s secret key*, so Alice (or an intruder) cannot read or modify it. The KDC sends this ticket to Alice.  
 	> 同时，KDC 将创建一个票据返回给 Alice，再由 Alice 发给 Bob，用于 Alice 与 Bob 的会话。  
-> 票据包含 Alice’s ID 和与 Bob 会话的 C-S Session Key，使用 Bob 的私钥（由 Bob 的密码加盐生成）进行加密。  
+	> 票据包含 Alice’s ID 和与 Bob 会话的 C-S Session Key，使用 Bob 的私钥（由 Bob 的密码加盐生成）进行加密。  
 
 3. Alice sends the ticket to Bob. Alice also sends a new authenticator (client ID and timestamp) encrypted using the *client-server session key*.  
 	> Alice 将 KDC 颁发的会话票据发给 Bob；同时发送一个新的 authenticator，其中包含 ID 和时间戳，使用 C-S Session Key 加密。  
