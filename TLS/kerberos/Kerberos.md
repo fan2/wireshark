@@ -1,6 +1,11 @@
-[Authentication and Identification In Depth](https://developer.apple.com/library/content/documentation/Security/Conceptual/AuthenticationAndAuthorizationGuide/Authentication/Authentication.html#//apple_ref/doc/uid/TP40011200-CH4-SW1)
+***SSO***（Single Sign On）是在多个应用系统中，用户只需要登录一次就可以访问所有相互信任的业务子系统。  
+***Kerberos*** 协议主要用于计算机网络的身份鉴别（Authentication），其特点是用户只需输入一次身份验证信息就可以凭借此验证获得的票据（ticket-granting ticket）访问多个服务，即 SSO。  
+本篇节选自《[Authentication and Identification In Depth](https://developer.apple.com/library/content/documentation/Security/Conceptual/AuthenticationAndAuthorizationGuide/Authentication/Authentication.html#//apple_ref/doc/uid/TP40011200-CH4-SW1)》的 Common Types of Authentication|Kerberos，做了部分阅读笔记，翻译注解了认证流程细节，补充了交叉参考配图。  
+先为自己留个坑，后面有空再完整翻译。  
 
 ## Kerberos
+> [Kerberos](https://en.wikipedia.org/wiki/Kerberos_%28protocol%29) is a computer network authentication protocol that works on the basis of 'tickets' to allow nodes communicating over a non-secure network to prove their identity to one another in a secure manner. 
+
 In Greek mythology, Kerberos was the three-headed dog that guarded the gates of Hades. In computer security, Kerberos is an industry-standard protocol created by the Massachusetts Institute of Technology (MIT) to provide **authentication** over a network.
 
 Kerberos is a *symmetric-key*, *server-based* protocol that is widely used in Macintosh, Windows, and UNIX networks. Kerberos has been integrated into OS X since OS X v10.1. Kerberos is highly secure, and unlike some other shared secret, private-key methods, it can be used for `one-to-many` and `many-to-many` communications as well as `one-to-one`. Kerberos achieves this ability by storing all users’ passwords in a ***central location***, the *directory server*. Kerberos can be used for any number of users and servers on a network.
