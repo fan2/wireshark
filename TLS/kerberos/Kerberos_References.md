@@ -1,4 +1,4 @@
-SSO是在多个应用系统中，用户只需要登录一次就可以访问所有相互信任的应用系统。
+SSO 是在多个应用系统中，用户只需要登录一次就可以访问所有相互信任的应用系统。
 
 ## SSO([Single sign-on](https://en.wikipedia.org/wiki/Single_sign-on))
 Single sign-on (SSO) is a property of access control of **multiple** related, yet independent, software systems. With this property, a user logs in with a single ID and password to gain access to a connected system or systems *without* using different usernames or passwords, or in some configurations seamlessly sign on at each system. This is typically accomplished using the [Lightweight Directory Access Protocol](https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol) (LDAP) and stored LDAP databases on (directory) servers.[1] A simple version of single sign-on can be achieved over IP networks using *cookies* but only if the sites share a common DNS parent domain.[2]
@@ -71,12 +71,18 @@ Chapter 18 Using the Windows Desktop Single Sign-On Authentication Module
 ![SSO: Kerberos Steps](https://image.slidesharecdn.com/week3-lecture-130129073718-phpapp01/95/week3-lecture-33-638.jpg?cb=1359445181)  
 
 ## blog
+[Kerberos简介](http://www.cnblogs.com/idior/archive/2006/03/20/354027.html)  
 [SSO单点登录系列](http://blog.csdn.net/ae6623/article/category/1402098)  
 [CAS 实现单点登录（SSO）](http://blog.csdn.net/hejingyuan6/article/details/44277023)  
 
 [基于Cookie实现的SSO服务源码分析](https://my.oschina.net/kanlianhui/blog/393276)
 
 ![CAS Browser Single-Signon Sequence Diagram](https://static.oschina.net/uploads/img/201511/04073455_iD5D.png)
+
+[Kerberos单点登录实现过程](http://dsw.iteye.com/blog/333351)  
+[SSO的一个实例就是Kerberos](http://blog.sina.com.cn/s/blog_43b0f8650100pa1a.html)  
+[kerberos认证原理](http://blog.csdn.net/wulantian/article/details/42418231)  
+[SSO(Single Sign-on) in Action(上篇)](http://www.blogjava.net/security/archive/2006/10/02/sso_in_action.html)  
 
 ## OAuth
 [OAuth2.0简介](http://wiki.open.qq.com/wiki/mobile/OAuth2.0%E7%AE%80%E4%BB%8B) [OAuth2.0开发文档](http://wiki.open.qq.com/wiki/mobile/OAuth2.0%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3)  
