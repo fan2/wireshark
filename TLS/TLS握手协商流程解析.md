@@ -93,24 +93,15 @@ Master Secret 作为数据加解密相关的 secret 的 Key Material 的一部�
 所谓 ***HTTPs*** 全称为 Hyper Text Transfer Protocol over Secure Socket Layer，意即 over TLS 的 Secure HTTP。
 
 ## 参考
-[密码学笔记](http://www.ruanyifeng.com/blog/2006/12/notes_on_cryptography.html)  
-[【翻译】密码学一小时必知](https://blog.helong.info/blog/2015/04/12/translate-Everything-you-need-to-know-about-cryptgraphy-in-1-hour/)  
-[现代密码学实践指南](https://blog.helong.info/blog/2015/06/06/modern-crypto/)  
-
-[数字签名和数字证书](http://blog.csdn.net/phunxm/article/details/16344837)  
-[数字证书的基础知识](http://www.enkichen.com/2016/02/26/digital-certificate-based/)  
-
-[公钥、秘钥、对称加密、非对称加密总结](http://my.oschina.net/shede333/blog/359290)  
-[和安全有关的那些事](http://blog.csdn.net/bluishglc/article/details/7585965)  
-
-[**也许，这样理解HTTPS更容易**](http://blog.jobbole.com/110354/)  
-[HTTPS 工作原理和 TCP 握手机制](http://blog.jobbole.com/105633/)  
+[SSL/TLS协议运行机制的概述](http://www.ruanyifeng.com/blog/2014/02/ssl_tls.html)  
+[**图解SSL/TLS协议**](http://www.ruanyifeng.com/blog/2014/09/illustration-ssl.html)  
 
 [How HTTPS Secures Connections](https://blog.hartleybrody.com/https-certificates/) / [HTTPS是如何保证连接安全](http://blog.jobbole.com/45530/)  
 [**The First Few Milliseconds of an HTTPS Connection**](http://www.moserware.com/2009/06/first-few-milliseconds-of-https.html)  
 
-[SSL/TLS协议运行机制的概述](http://www.ruanyifeng.com/blog/2014/02/ssl_tls.html)  
-[**图解SSL/TLS协议**](http://www.ruanyifeng.com/blog/2014/09/illustration-ssl.html)  
+[HTTPS 工作原理和 TCP 握手机制](http://blog.jobbole.com/105633/)  
+[**也许，这样理解HTTPS更容易**](http://blog.jobbole.com/110354/)  
+[**一个故事讲完https**](http://www.sohu.com/a/157872667_467808)  
 
 [百度全站 HTTPS 实践](http://blog.csdn.net/luocn99/article/details/45460673)  
-[TLS协议分析 与 现代加密通信协议设计](https://blog.helong.info/blog/2015/09/07/tls-protocol-analysis-and-crypto-protocol-design/)  
+[**TLS 协议分析**](http://blog.csdn.net/zhangtaoym/article/category/6948696) by 微信后台团队(微信号：gh_93b1115dc96f)  
