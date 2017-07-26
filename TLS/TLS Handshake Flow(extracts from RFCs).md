@@ -64,3 +64,7 @@ rfc7919: [Negotiated Finite Field Diffie-Hellman Ephemeral Parameters for Transp
 
 ### Server Certificate
 @img ![Server_Certificate](images/rfc4492-5.3.Server_Certificate.png)
+
+## 参考
+[The SSL/TLS Handshake: an Overview](https://www.ssl.com/article/ssl-tls-handshake-overview/)  
+[An overview of the SSL or TLS handshake](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_7.1.0/com.ibm.mq.doc/sy10660_.htm)  
