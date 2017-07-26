@@ -48,3 +48,12 @@ CipherSuite TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256    = {0xC0,0x2F};
 [Proposal to Change the Default TLS Ciphersuites Offered by Browsers](https://briansmith.org/browser-ciphersuites-01)  
 [TLS 1.2 handshake problem?](http://grokbase.com/t/apache/users/126c3zespf/httpd-tls-1-2-handshake-problem)  
 [TLS Version specific cipher suites](https://security.stackexchange.com/questions/130136/tls-version-specific-cipher-suites)  
+
+[密码学笔记](http://www.ruanyifeng.com/blog/2006/12/notes_on_cryptography.html)  [密码学一小时必知](https://blog.helong.info/blog/2015/04/12/translate-Everything-you-need-to-know-about-cryptgraphy-in-1-hour/)  
+[数字签名和数字证书](http://blog.csdn.net/phunxm/article/details/16344837)  [数字证书的基础知识](http://www.enkichen.com/2016/02/26/digital-certificate-based/)  
+
+[公钥、秘钥、对称加密、非对称加密总结](http://my.oschina.net/shede333/blog/359290)  
+[和安全有关的那些事](http://blog.csdn.net/bluishglc/article/details/7585965)  
+
+[现代密码学实践指南](https://blog.helong.info/blog/2015/06/06/modern-crypto/) [byronhe@tencent](http://www.gad.qq.com/article/detail/12527)  
+[TLS协议分析 与 现代加密通信协议设计](https://blog.helong.info/blog/2015/09/07/tls-protocol-analysis-and-crypto-protocol-design/) [byronhe@tencent](http://www.gad.qq.com/article/detail/12531)  
