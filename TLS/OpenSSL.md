@@ -28,6 +28,8 @@ openssl 的代码算是其中最混乱的，但是也是最久经考验的。 ( 
 [SSL/TLS协议及Openssl工具的实现](http://www.jianshu.com/p/da65e5cd552e)  
 [利用OpenSSL建立PKI数字证书系统](http://www.jianshu.com/p/143698fd8551)  
 
+[通过Epoll+OpenSSL在高并发压测机器人中支持https](http://www.gad.qq.com/article/detail/24255)  
+
 ## [安全协议系列（四）----SSL与TLS](http://www.cnblogs.com/efzju/p/3674058.html)
 本文使用 OpenSSL 提供的子命令 s_server/s_client 进行 TLS 通信。
 利用 OpenSSL 自带的调试功能，来观察运行的内部细节，起到事半功倍的作用。
