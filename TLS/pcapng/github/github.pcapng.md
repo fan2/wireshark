@@ -276,3 +276,7 @@ TLS Server Finished
 
 ## github-SignIn-2(tcp.port==56033).pcapng
 同 github-SignIn-1(tcp.port==54284).pcapng。
+
+## 参考
+[从wireshark抓包开始学习https](http://tmq.qq.com/2016/12/https_from_wireshark/)  
+[传输层安全协议抓包分析之SSL/TLS](http://www.freebuf.com/articles/network/116497.html)  
